@@ -1,20 +1,36 @@
 input.onButtonPressed(Button.A, function () {
+    basic.showIcon(IconNames.No)
     for (let index = 0; index < 30; index++) {
-        pins.digitalWritePin(DigitalPin.P1, 1)
-        pins.digitalWritePin(DigitalPin.P2, 0)
+        cuteBot.colorLight(cuteBot.RGBLights.RGB_L, 0xff0000)
+        cuteBot.colorLight(cuteBot.RGBLights.RGB_R, 0x000000)
         basic.pause(200)
-        pins.digitalWritePin(DigitalPin.P1, 0)
-        pins.digitalWritePin(DigitalPin.P2, 1)
+        cuteBot.colorLight(cuteBot.RGBLights.RGB_L, 0x000000)
+        cuteBot.colorLight(cuteBot.RGBLights.RGB_R, 0xff0000)
         basic.pause(200)
     }
-    servos.P0.setAngle(0)
+    cuteBot.setServo(cuteBot.ServoList.S1, 90)
+    cuteBot.colorLight(cuteBot.RGBLights.ALL, 0xff0000)
 })
 input.onButtonPressed(Button.B, function () {
-    servos.P0.setAngle(90)
-    pins.digitalWritePin(DigitalPin.P1, 0)
-    pins.digitalWritePin(DigitalPin.P2, 0)
+    cuteBot.setServo(cuteBot.ServoList.S1, 0)
+    cuteBot.colorLight(cuteBot.RGBLights.ALL, 0x000000)
+    basic.showLeds(`
+        . . # . .
+        . . . # .
+        # # # # #
+        . . . # .
+        . . # . .
+        `)
 })
-servos.P0.setAngle(90)
+cuteBot.setServo(cuteBot.ServoList.S1, 0)
+cuteBot.colorLight(cuteBot.RGBLights.ALL, 0x000000)
+basic.showLeds(`
+    . . # . .
+    . . . # .
+    # # # # #
+    . . . # .
+    . . # . .
+    `)
 basic.forever(function () {
 	
 })
